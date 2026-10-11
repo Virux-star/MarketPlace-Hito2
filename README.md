@@ -36,7 +36,7 @@ Este repositorio contiene la aplicación desarrollada para el proyecto integrado
     ├── index.html        # Plantilla base HTML
     └── package.json      # Dependencias y scripts de Vite
 
-🌐 Rutas del Sistema (Frontend)
+## 🌐 Rutas del Sistema (Frontend)
 Rutas Públicas
 / o /posts: Catálogo general de velas y publicaciones.
 
