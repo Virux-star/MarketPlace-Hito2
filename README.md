@@ -53,15 +53,18 @@ Rutas Privadas (Requieren Token JWT activo)
 /create-post: Formulario de creación de una nueva publicación.
 
 🚀 Instrucciones de Ejecución
-1. Servidor Backend (back_market)
+1. Servidor Backend (`back_market`)
+```bash
 cd back_market
 npm install
 npm run dev
+```
 
-2. Cliente Frontend (front_market)
+2. Cliente Frontend (`front_market`)
 En una nueva terminal:
-
+```bash
 cd front_market
 npm install
 npm run dev
 Navegar a http://localhost:5173 para abrir la aplicación.
+```
