@@ -37,8 +37,6 @@ Este repositorio contiene la aplicación desarrollada para el proyecto integrado
     └── package.json      # Dependencias y scripts de Vite
 ```
 
----
-
 ## 🌐 Rutas del Sistema (Frontend)
 Rutas Públicas
 / o /posts: Catálogo general de velas y publicaciones.
@@ -56,15 +54,14 @@ Rutas Privadas (Requieren Token JWT activo)
 
 🚀 Instrucciones de Ejecución
 1. Servidor Backend (back_market)
-
-	cd back_market
-	npm install
-	npm run dev
+cd back_market
+npm install
+npm run dev
 
 2. Cliente Frontend (front_market)
 En una nueva terminal:
 
-	cd front_market
-	npm install
-	npm run dev
+cd front_market
+npm install
+npm run dev
 Navegar a http://localhost:5173 para abrir la aplicación.
