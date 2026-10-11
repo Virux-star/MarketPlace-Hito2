@@ -56,15 +56,15 @@ Rutas Privadas (Requieren Token JWT activo)
 
 🚀 Instrucciones de Ejecución
 1. Servidor Backend (back_market)
-Bash
-cd back_market
-npm install
-npm run dev
+
+	cd back_market
+	npm install
+	npm run dev
+
 2. Cliente Frontend (front_market)
 En una nueva terminal:
 
-Bash
-cd front_market
-npm install
-npm run dev
+	cd front_market
+	npm install
+	npm run dev
 Navegar a http://localhost:5173 para abrir la aplicación.
