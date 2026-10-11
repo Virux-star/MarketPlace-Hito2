@@ -1,38 +1,42 @@
 # Marketplace — Hito 2: Desarrollo Frontend
 
-Este repositorio contiene la aplicación cliente desarrollada en **React** para el proyecto integrador **Marketplace de Velas (Vel-Art)**. El proyecto está maquetado con **Bootstrap 5**, utiliza **React Router DOM** para la navegación y **Context API** para la gestión del estado global de la sesión y las publicaciones.
+Este repositorio contiene la aplicación desarrollada para el proyecto integrador **Marketplace (Vel-Art)**, incluyendo el servidor **Backend** (Node.js/Express) y la aplicación cliente **Frontend** (React + Vite) maquetada con **Bootstrap 5**, **React Router DOM** y **Context API**.
 
 ---
 
 ## 🛠️ Tecnologías y Dependencias
 
-- **Framework:** React 18 (Vite)
+- **Backend:** Node.js, Express, PostgreSQL, JWT, bcryptjs, dotenv.
+- **Frontend Framework:** React 18 (Vite)
 - **Navegación:** `react-router-dom` (v6)
 - **Estado Global:** Context API (`UserContext`, `PostsContext`)
 - **Estilos:** Bootstrap 5
-- **Cliente HTTP:** Axios (configurado con interceptores de Token JWT)
+- **Cliente HTTP:** Axios (con interceptores para Token JWT)
 
 ---
 
 ## 📁 Estructura del Proyecto
 
-front_market/
-├── public/          # Archivos estáticos
-├── src/
-│   ├── assets/      # Recursos gráficos e imágenes
-│   ├── components/  # Componentes reutilizables (Navbar, Cards, Modales)
-│   ├── context/     # Proveedores de Estado Global (UserContext, PostsContext)
-│   ├── services/    # Configuración de Axios (api.js)
-│   ├── views/       # Vistas del sitio (Home, Login, Register, Profile, etc.)
-│   ├── App.jsx      # Enrutador y Providers
-│   └── main.jsx     # Punto de entrada y carga de Bootstrap
-├── .env             # Variable de entorno de la API (VITE_API_URL)
-├── .gitignore       # Exclusión de node_modules y variables sensibles
-├── index.html       # Plantilla base HTML
-├── package.json     # Scripts y dependencias
-└── vite.config.js   # Configuración de Vite
+```text
+.
+├── back_market/          # Servidor de API REST (Node.js / Express)
+│   ├── BD/               # Scripts SQL de base de datos
+│   ├── src/              # Controladores, rutas y middlewares
+│   └── package.json
+│
+└── front_market/         # Aplicación cliente (React / Vite)
+    ├── public/           # Archivos estáticos
+    ├── src/
+    │   ├── assets/       # Recursos gráficos e imágenes
+    │   ├── components/   # Componentes reutilizables (Navbar, Cards, Modales)
+    │   ├── context/      # Proveedores de Estado Global (UserContext, PostsContext)
+    │   ├── services/     # Configuración de Axios (api.js)
+    │   └── views/        # Vistas (Home, Login, Register, Profile, etc.)
+    ├── .env              # Variable de entorno de la API (VITE_API_URL)
+    ├── index.html        # Plantilla base HTML
+    └── package.json      # Dependencias y scripts de Vite
 
-🌐 Rutas del Sistema
+🌐 Rutas del Sistema (Frontend)
 Rutas Públicas
 / o /posts: Catálogo general de velas y publicaciones.
 
@@ -48,21 +52,16 @@ Rutas Privadas (Requieren Token JWT activo)
 /create-post: Formulario de creación de una nueva publicación.
 
 🚀 Instrucciones de Ejecución
-
-Clonar el repositorio:
-
-git clone [https://github.com/walcorpar/MarketPlace-Hito2.git](https://github.com/walcorpar/MarketPlace-Hito2.git)
-cd MarketPlace-Hito2/front_market
-
-Instalar dependencias:
-
+1. Servidor Backend (back_market)
+Bash
+cd back_market
 npm install
-
-Configurar variables de entorno:
-Crea un archivo .env en la raíz de front_market con el siguiente contenido:
-
-VITE_API_URL=http://localhost:3000
-
-Levantar el servidor de desarrollo:
 npm run dev
+2. Cliente Frontend (front_market)
+En una nueva terminal:
 
+Bash
+cd front_market
+npm install
+npm run dev
+Navegar a http://localhost:5173 para abrir la aplicación.
