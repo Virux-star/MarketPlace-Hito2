@@ -35,6 +35,9 @@ Este repositorio contiene la aplicación desarrollada para el proyecto integrado
     ├── .env              # Variable de entorno de la API (VITE_API_URL)
     ├── index.html        # Plantilla base HTML
     └── package.json      # Dependencias y scripts de Vite
+```
+
+---
 
 ## 🌐 Rutas del Sistema (Frontend)
 Rutas Públicas
