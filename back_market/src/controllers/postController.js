@@ -5,7 +5,7 @@ const pool = require('../config/db');
 const getPosts = async (req, res) => {
   try {
     const query = `
-      SELECT p.id, p.title, p.description, p.price, p.aroma_type, p.img_url, p.created_at,
+      SELECT p.id, p.title, p.description, p.price, p.category, p.img_url, p.created_at,
              u.id AS vendor_id, u.name AS vendor_name, u.city AS vendor_city
       FROM posts p
       JOIN users u ON p.user_id = u.id
@@ -24,7 +24,7 @@ const getPostById = async (req, res) => {
   try {
     const { id } = req.params;
     const query = `
-      SELECT p.id, p.title, p.description, p.price, p.aroma_type, p.img_url, p.created_at,
+      SELECT p.id, p.title, p.description, p.price, p.category, p.img_url, p.created_at,
              u.id AS vendor_id, u.name AS vendor_name, u.email AS vendor_email, u.city AS vendor_city
       FROM posts p
       JOIN users u ON p.user_id = u.id
@@ -46,7 +46,7 @@ const getPostById = async (req, res) => {
 // 3. CREAR NUEVA PUBLICACIÓN (POST /posts - Privada)
 const createPost = async (req, res) => {
   try {
-    const { title, description, price, aroma_type, img_url } = req.body;
+    const { title, description, price, category, img_url } = req.body;
     const user_id = req.user.id; // Obtenido desde el middleware JWT
 
     if (!title || !description || !price) {
@@ -54,11 +54,11 @@ const createPost = async (req, res) => {
     }
 
     const query = `
-      INSERT INTO posts (user_id, title, description, price, aroma_type, img_url)
+      INSERT INTO posts (user_id, title, description, price, category, img_url)
       VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING *
     `;
-    const values = [user_id, title, description, price, aroma_type || null, img_url || null];
+    const values = [user_id, title, description, price, category || null, img_url || null];
     const newPost = await pool.query(query, values);
 
     res.status(201).json({

@@ -68,7 +68,7 @@ CREATE TABLE public.posts (
     title character varying(150) NOT NULL,
     description text NOT NULL,
     price integer NOT NULL,
-    aroma_type character varying(50),
+    category character varying(50),
     img_url text,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
