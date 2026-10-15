@@ -14,12 +14,23 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Middleware para registrar peticiones en consola
+app.use((req, res, next) => {
+  console.log(`[${new Date().toLocaleTimeString()}] 📥 ${req.method} ${req.url} Desde IP: ${req.ip}`);
+  next();
+});
+
 // Rutas de la API
 app.use('/', authRoutes);
 app.use('/posts', postRoutes);
 app.use('/favorites', favRoutes);
 
-// Servidor escuchando
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor ejecutándose en http://localhost:${PORT}`);
-});
+// Exportar app para las pruebas
+module.exports = app;
+
+// Levantar el servidor solo si no se está ejecutando en entorno de pruebas (Jest)
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Servidor ejecutándose en http://localhost:${PORT}`);
+  });
+}
