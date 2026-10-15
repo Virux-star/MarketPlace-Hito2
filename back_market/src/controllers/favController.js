@@ -7,7 +7,7 @@ const getFavorites = async (req, res) => {
     const user_id = req.user.id;
 
     const query = `
-      SELECT f.id AS favorite_id, p.id AS post_id, p.title, p.description, p.price, p.aroma_type, p.img_url,
+      SELECT f.id AS favorite_id, p.id AS post_id, p.title, p.description, p.price, p.category, p.img_url,
              u.name AS vendor_name, u.city AS vendor_city
       FROM favorites f
       JOIN posts p ON f.post_id = p.id
