@@ -3,6 +3,7 @@
 --
 
 
+
 -- Dumped from database version 18.4 (Debian 18.4-1.pgdg13+1)
 -- Dumped by pg_dump version 18.4 (Debian 18.4-1.pgdg13+1)
 
@@ -67,7 +68,7 @@ CREATE TABLE public.posts (
     title character varying(150) NOT NULL,
     description text NOT NULL,
     price integer NOT NULL,
-    category character varying(50),
+    aroma_type character varying(50),
     img_url text,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
@@ -219,3 +220,10 @@ ALTER TABLE ONLY public.favorites
 
 ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- PostgreSQL database dump complete
+--
+ALTER TABLE public.posts
+RENAME COLUMN aroma_type TO category;
